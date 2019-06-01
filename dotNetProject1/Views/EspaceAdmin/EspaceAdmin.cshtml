@@ -1,0 +1,226 @@
+﻿@model IEnumerable<dotNetProject1.Models.Candidat>
+
+@{
+    ViewBag.Title = "EspaceAdmin";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+
+
+}
+<aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
+
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="./">Gestion Ensas</a>
+            <a class="navbar-brand hidden" href="./"><img src="~/Content/myimage/logo2.png" alt="Logo"></a>
+        </div>
+
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                <h3 class="menu-title">Préselection</h3><!-- /.menu-title -->
+                <li>
+                    <a href=@Url.Action("Recherche","EspaceAdmin")>  <i class="menu-icon fa fa-laptop"></i>Recherche</a>
+
+                </li>
+                <li>
+                    <a href=@Url.Action("preselection","EspaceAdmin") ><i class="menu-icon fa fa-table"></i>Préselection</a>
+
+                </li>
+                <li>
+                    <a href=@Url.Action("Index","EspaceAdmin")> <i class="menu-icon fa fa-area-chart"></i>Statistique</a>
+
+                </li>
+
+                <h3 class="menu-title">Councours d'acces</h3><!-- /.menu-title -->
+
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i> Councour</a>
+
+                </li>
+                <li>
+                    <a href="widgets.html"> <i class="menu-icon ti-email"></i>Délébération </a>
+                </li>
+                <li>
+
+                    <a href="widgets.html"> <i class="menu-icon fa fa-bar-chart"></i>Statistique </a>
+
+                </li>
+
+
+
+            </ul>
+        </div><!-
+    </nav>
+</aside><!-- /#left-panel -->
+<!-- Left Panel -->
+<!-- Right Panel -->
+
+<div id="right-panel" class="right-panel">
+
+    <!-- Header-->
+    <header id="header" class="header">
+
+        <div class="header-menu">
+
+            <div class="col-sm-7">
+                <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                <div class="header-left">
+                    <h1>Bienvenue dans votre Espace </h1>
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="user-area dropdown float-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="user-avatar rounded-circle" src="/Content/myimage/admin.jpg" alt="User Avatar">
+                    </a>
+
+                    <div class="user-menu dropdown-menu">
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                    </div>
+                </div>
+
+                <div class="language-select dropdown" id="language-select">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
+                        <i class="flag-icon flag-icon-us"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="language">
+                        <div class="dropdown-item">
+                            <span class="flag-icon flag-icon-fr"></span>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-es"></i>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-us"></i>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-it"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </header><!-- /header -->
+    <!-- Header-->
+
+
+
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-white bg-flat-color-1">
+                        <div class="card-body pb-0">
+                            <h4 class="mb-0">
+                                <span class="count">@ViewBag.info</span>
+                            </h4>
+                            <p class="text-light">Inscrie en Genie Informatique</p>
+
+                            <div class="chart-wrapper px-0" style="height:70px;" height="70" />
+                            <canvas id="widgetChart1"></canvas>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!--/.col-->
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card text-white bg-flat-color-2">
+                    <div class="card-body pb-0">
+
+                        <h4 class="mb-0">
+                            <span class="count">@ViewBag.reso</span>
+                        </h4>
+                        <p class="text-light">Inscrie en Genie Telecome</p>
+
+                        <div class="chart-wrapper px-0" style="height:70px;" height="70" />
+                        <canvas id="widgetChart2"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card text-white bg-flat-color-3">
+                <div class="card-body pb-0">
+
+                    <h4 class="mb-0">
+                        <span class="count">@ViewBag.proc</span>
+                    </h4>
+                    <p class="text-light">Inscrie en Genie Procédé</p>
+
+                </div>
+
+                <div class="chart-wrapper px-0" style="height:70px;" height="70" />
+                <canvas id="widgetChart3"></canvas>
+            </div>
+        </div>
+    </div>
+    <!--/.col-->
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card text-white bg-flat-color-4">
+            <div class="card-body pb-0">
+
+                <h4 class="mb-0">
+                    <span class="count">@ViewBag.indus</span>
+                </h4>
+                <p class="text-light">Inscrie en Genie Industrielle</p>
+
+                <div class="chart-wrapper px-3" style="height:70px;" height="70" />
+                <canvas id="widgetChart4"></canvas>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mb-3">Nombre des etudiants inscrits par filiére </h4>
+                        <img src="@Url.Action("mychar")" />
+                    </div>
+                </div>
+            </div><!-- /# column -->
+
+            
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mb-3">Nombre des etudiants inscrit par deplome</h4>
+                        <img src="@Url.Action("chartdeplome")" />
+                    </div>
+                </div>
+            </div><!-- /# column -->
+
+
+        </div>
+
+    </div><!-- .animated -->
+</div><!-- .content -->
+    </div><!-- /#right-panel -->

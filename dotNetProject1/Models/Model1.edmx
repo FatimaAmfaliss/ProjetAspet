@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FirstDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="50" />
+          <Property Name="modepass" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Candidat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="50" />
+          <Property Name="prnom" Type="varchar" MaxLength="50" />
+          <Property Name="date_naissance" Type="date" />
+          <Property Name="lieu_naissance" Type="varchar" MaxLength="50" />
+          <Property Name="adresse" Type="text" />
+          <Property Name="nationalite" Type="varchar" MaxLength="50" />
+          <Property Name="ville" Type="varchar" MaxLength="50" />
+          <Property Name="tel" Type="varchar" MaxLength="50" />
+          <Property Name="fix" Type="varchar" MaxLength="50" />
+          <Property Name="cin" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="cne" Type="varchar" MaxLength="50" />
+          <Property Name="type_bac" Type="varchar" MaxLength="50" />
+          <Property Name="annee_bac" Type="varchar" MaxLength="50" />
+          <Property Name="mention_bac" Type="varchar" MaxLength="50" />
+          <Property Name="diplome" Type="varchar" MaxLength="50" />
+          <Property Name="ecole" Type="varchar" MaxLength="50" />
+          <Property Name="ville_ecole" Type="varchar" MaxLength="50" />
+          <Property Name="redouble_1ere_annee" Type="bit" />
+          <Property Name="redouble_2eme_annee" Type="bit" />
+          <Property Name="redouble_3eme_annee" Type="bit" />
+          <Property Name="note_S1" Type="float" />
+          <Property Name="note_S2" Type="float" />
+          <Property Name="note_S3" Type="float" />
+          <Property Name="note_S4" Type="float" />
+          <Property Name="note_S5" Type="float" />
+          <Property Name="note_S6" Type="float" />
+          <Property Name="photo_identite" Type="varbinary(max)" />
+          <Property Name="scan_bac" Type="image" />
+          <Property Name="scan_diplome" Type="image" />
+          <Property Name="score" Type="int" />
+          <Property Name="note_concour" Type="float" />
+          <Property Name="filiere_choisie" Type="varchar" MaxLength="50" />
+          <Property Name="password2" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="FirstDBModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Candidat" EntityType="Self.Candidat" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FirstDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Candidat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prnom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_naissance" Type="DateTime" Precision="0" />
+          <Property Name="lieu_naissance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adresse" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="nationalite" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ville" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fix" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cne" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="type_bac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="annee_bac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mention_bac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="diplome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ecole" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ville_ecole" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="redouble_1ere_annee" Type="Boolean" />
+          <Property Name="redouble_2eme_annee" Type="Boolean" />
+          <Property Name="redouble_3eme_annee" Type="Boolean" />
+          <Property Name="note_S1" Type="Double" />
+          <Property Name="note_S2" Type="Double" />
+          <Property Name="note_S3" Type="Double" />
+          <Property Name="note_S4" Type="Double" />
+          <Property Name="note_S5" Type="Double" />
+          <Property Name="note_S6" Type="Double" />
+          <Property Name="photo_identite" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="scan_bac" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="scan_diplome" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="score" Type="Int32" />
+          <Property Name="note_concour" Type="Double" />
+          <Property Name="filiere_choisie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="FirstDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Candidats" EntityType="Self.Candidat" />
+          <EntitySet Name="Admins" EntityType="FirstDBModel.Admin" />
+        </EntityContainer>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="modepass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FirstDBModelStoreContainer" CdmEntityContainer="FirstDBEntities">
+          <EntitySetMapping Name="Candidats">
+            <EntityTypeMapping TypeName="FirstDBModel.Candidat">
+              <MappingFragment StoreEntitySet="Candidat">
+                <ScalarProperty Name="password2" ColumnName="password2" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="prnom" ColumnName="prnom" />
+                <ScalarProperty Name="date_naissance" ColumnName="date_naissance" />
+                <ScalarProperty Name="lieu_naissance" ColumnName="lieu_naissance" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="nationalite" ColumnName="nationalite" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="fix" ColumnName="fix" />
+                <ScalarProperty Name="cin" ColumnName="cin" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="cne" ColumnName="cne" />
+                <ScalarProperty Name="type_bac" ColumnName="type_bac" />
+                <ScalarProperty Name="annee_bac" ColumnName="annee_bac" />
+                <ScalarProperty Name="mention_bac" ColumnName="mention_bac" />
+                <ScalarProperty Name="diplome" ColumnName="diplome" />
+                <ScalarProperty Name="ecole" ColumnName="ecole" />
+                <ScalarProperty Name="ville_ecole" ColumnName="ville_ecole" />
+                <ScalarProperty Name="redouble_1ere_annee" ColumnName="redouble_1ere_annee" />
+                <ScalarProperty Name="redouble_2eme_annee" ColumnName="redouble_2eme_annee" />
+                <ScalarProperty Name="redouble_3eme_annee" ColumnName="redouble_3eme_annee" />
+                <ScalarProperty Name="note_S1" ColumnName="note_S1" />
+                <ScalarProperty Name="note_S2" ColumnName="note_S2" />
+                <ScalarProperty Name="note_S3" ColumnName="note_S3" />
+                <ScalarProperty Name="note_S4" ColumnName="note_S4" />
+                <ScalarProperty Name="note_S5" ColumnName="note_S5" />
+                <ScalarProperty Name="note_S6" ColumnName="note_S6" />
+                <ScalarProperty Name="photo_identite" ColumnName="photo_identite" />
+                <ScalarProperty Name="scan_bac" ColumnName="scan_bac" />
+                <ScalarProperty Name="scan_diplome" ColumnName="scan_diplome" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="note_concour" ColumnName="note_concour" />
+                <ScalarProperty Name="filiere_choisie" ColumnName="filiere_choisie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="FirstDBModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="modepass" ColumnName="modepass" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

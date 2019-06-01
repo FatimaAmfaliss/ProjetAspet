@@ -1,0 +1,413 @@
+﻿@model dotNetProject1.Models.Candidat
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPage3.cshtml";
+
+}
+
+<aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
+
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="./">Gestion Ensas</a>
+            <a class="navbar-brand hidden" href="./"><img src="~/Content/myimage/logo2.png" alt="Logo"></a>
+        </div>
+
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href=@Url.Action("Index","EspaceAdmin")> <i class="menu-icon fa fa-dashboard"></i>Acceuil </a>
+                </li>
+                <h3 class="menu-title">Préselection</h3><!-- /.menu-title -->
+                <li>
+                    <a href=@Url.Action("Recherche","EspaceAdmin")>  <i class="menu-icon fa fa-laptop"></i>Recherche</a>
+
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Préselection</a>
+
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Statistique</a>
+
+                </li>
+
+                <h3 class="menu-title">Councours d'acces</h3><!-- /.menu-title -->
+
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i> Councour</a>
+
+                </li>
+                <li>
+                    <a href="widgets.html"> <i class="menu-icon ti-email"></i>Délébération </a>
+                </li>
+                <li>
+
+                    <a href="widgets.html"> <i class="menu-icon fa fa-bar-chart"></i>Statistique </a>
+
+                </li>
+
+
+
+            </ul>
+        </div><!-
+    </nav>
+</aside><!-- /#left-panel -->
+<!-- Left Panel -->
+<!-- Right Panel -->
+
+<div id="right-panel" class="right-panel">
+
+    <!-- Header-->
+    <header id="header" class="header">
+
+        <div class="header-menu">
+
+            <div class="col-sm-7">
+                <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                <div class="header-left">
+                    <h1>Liste des étudiantes</h1>
+
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="user-area dropdown float-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="user-avatar rounded-circle" src="/Content/myimage/admin.jpg" alt="User Avatar">
+                    </a>
+
+                    <div class="user-menu dropdown-menu">
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                    </div>
+                </div>
+
+                <div class="language-select dropdown" id="language-select">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
+                        <i class="flag-icon flag-icon-us"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="language">
+                        <div class="dropdown-item">
+                            <span class="flag-icon flag-icon-fr"></span>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-es"></i>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-us"></i>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-it"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </header><!-- /header -->
+    <!-- Header-->
+
+
+
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                        </div>
+                        <div class="card-body">
+
+                            <h3>Are you sure you want to delete this?</h3>
+                            <div>
+                                <h4>Candidat</h4>
+                                <hr />
+                                <dl class="dl-horizontal">
+                                    <dd>
+                                        @{
+                                            var base64 = Convert.ToBase64String(Model.photo_identite);
+                                            var images = string.Format("data:image/gif;base64,{0}", base64);
+
+                                        }
+                                        <img src="@images" height="100" width="100" />
+
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.nom)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.nom)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.prnom)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.prnom)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.date_naissance)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.date_naissance)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.lieu_naissance)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.lieu_naissance)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.adresse)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.adresse)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.nationalite)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.nationalite)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.ville)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.ville)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.tel)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.tel)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.fix)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.fix)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.cin)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.cin)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.email)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.email)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.cne)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.cne)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.type_bac)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.type_bac)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.annee_bac)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.annee_bac)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.mention_bac)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.mention_bac)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.diplome)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.diplome)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.ecole)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.ecole)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.ville_ecole)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.ville_ecole)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.redouble_1ere_annee)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.redouble_1ere_annee)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.redouble_2eme_annee)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.redouble_2eme_annee)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.redouble_3eme_annee)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.redouble_3eme_annee)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.note_S1)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.note_S1)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.note_S2)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.note_S2)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.note_S3)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.note_S3)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.note_S4)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.note_S4)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.note_S5)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.note_S5)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.note_S6)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.note_S6)
+                                    </dd>
+
+                                    
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.score)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.score)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.note_concour)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.note_concour)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.filiere_choisie)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.filiere_choisie)
+                                    </dd>
+
+
+
+                                </dl>
+
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-actions no-color">
+                                        <input type="submit" value="Delete" class="btn btn-default" /> |
+                                        @Html.ActionLink("Back to List", "Index")
+                                    </div>
+                                }
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+</div><!-- /#right-panel --

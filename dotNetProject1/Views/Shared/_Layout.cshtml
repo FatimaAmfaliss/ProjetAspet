@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/coin-slider.css" />
+    <script type="text/javascript" src="~/Content/js/cufon-yui.js")></script>
+    <script type="text/javascript" src="~/Content/js/cufon-aller.js")></script>
+    <script type="text/javascript" src="~/Content/js/jquery-1.4.2.min.js")></script>
+    <script type="text/javascript" src="~/Content/js/script.js")></script>
+    <script type="text/javascript" src="~/Content/js/coin-slider.min.js")></script>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="main=">
+        <div class="header">
+            <div class="header_resize">
+                <div class="logo">
+                    <h1><a href="#">ENSA<span>S</span> <small>Ecole Nationale des Sciences Appliquées</small></a></h1>
+                </div>
+                <div class="menu_nav">
+                    <ul>
+                        <li class="active"><a href=@Url.Action("Index","Home")><span>Home</span></a></li>
+                        <li><a href=@Url.Action("Index","Home")><span>Formation</span></a></li>
+                        <li><a href=""><span>Recherche</span></a></li>
+                        <li><a href="@Url.Action("Index","Login")"><span>connexion</span></a>
+                          </li>
+                        <li><a href=@Url.Action("etape1","Candidats")><span>inscription</span></a></li>
+                    </ul>
+                </div>
+                <div class="clr"></div>
+                <div class="clr"></div>
+                <div class="slider">
+                    <div id="coin-slider">
+                        <a href="#"><img src="~/Content/images/ens.jpg" width="935" height="307" alt="" /> 
+                        </a>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content_resize">
+
+                <div>
+                    @RenderBody();
+                </div>
+                <div class="sidebar">
+                    <div class="searchform">
+                        <form id="formsearch" name="formsearch" method="post" action="#">
+                            <span>
+                                <input name="editbox_search" class="editbox_search" id="editbox_search" maxlength="80" value="Search our ste:" type="text" />
+                            </span>
+                            <input name="button_search" src="~/Content/images/search.gif" class="button_search" type="image" />
+                        </form>
+                    </div>
+                    <div class="clr"></div>
+                    <div class="gadget">
+                        <h2 class="star"><span>Actualités</span></h2>
+                        <div class="clr"></div>
+                        <ul class="sb_menu">
+                            <li color="#ff00"><a href="#">Inscription au Cycle d'ingénieure</a></li>
+
+                        </ul>
+                        <ul class="sb_menu">
+
+                            <li><a href="#">liste des etudiantes preselection</a></li>
+
+                        </ul>
+
+
+
+                        <ul class="sb_menu">
+
+                            <li><a href="#"> Avis aux lauréats de l'année 2017-2018</a></li>
+
+                        </ul>
+
+                        <ul class="sb_menu">
+
+                            <li><a href="#"> Inscription a l'AMO (Assurence Maladie)</a></li>
+
+                        </ul>
+
+
+                    </div>
+                    <div class="gadget">
+
+                        <h2 class="star"><span>Nos partenaires</span></h2>
+                        <div class="clr"></div>
+                        <ul class="ex_menu">
+                            <li><img src="~/Content/images/ocp.png" width="80" height="80" alt="" class="gal" /></li>
+                            <li><img src="~/Content/images/bnc.png" width="_0" height="80" alt="" class="gal" /></li>
+                            <li><img src="~/Content/images/istmar.png" width="80" height="80" alt="" class="gal" /></li>
+                            <li><img src="~/Content/images/markz.png" width="80" height="80" alt="" class="gal" /></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
+       
+                    <div class="fbg">
+                        <div class="fbg_resize">
+                            <div class="col c1">
+                                <h2><span>ENSA</span> Safi</h2>
+                                <p>
+                                    Université Cadi Ayyad <br>
+                                    Ecole Nationale <br>
+                                    des Sciences Appliquées<br>
+                                    Safi
+                                </p>
+                            </div>
+                            <div class="col c2">
+                                <h2><span>Tweets</span></h2>
+                            </div>
+                            <div class="col c3">
+                                <h2><span>Contact</span> </h2>
+                                <p></p>
+                                <p class="contact_info">
+                                    <span>Address:</span> Route Sidi Bouzid BP 63, 46000 <br>  - Safi, Maroc<br />
+                                    <span>Telephone:</span> +212 24 66 91 55<br />
+                                    <span>FAX:</span> +212 24 66 80 12<br />
+                                    <span>E-mail:</span> <a href="#">ensasafi@gmail.com</a>
+                                </p>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <div class="footer_resize">
+                            <p class="rf">projet ASP.NET 2018/2019</p>
+                            <p class="lf">4GINGF.</p>
+
+                        </div>
+                    </div>
+                </div>
+</body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</html>
+
+

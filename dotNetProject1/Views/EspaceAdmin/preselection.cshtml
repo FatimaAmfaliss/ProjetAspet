@@ -1,0 +1,185 @@
+﻿@model IEnumerable<dotNetProject1.Models.Candidat>
+
+@{
+    ViewBag.Title = "preselection";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+
+
+}
+<aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
+
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="./">Gestion Ensas</a>
+            <a class="navbar-brand hidden" href="./"><img src="~/Content/myimage/logo2.png" alt="Logo"></a>
+        </div>
+
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+
+                <h3 class="menu-title">Préselection</h3><!-- /.menu-title -->
+                <li>
+                    <a href=@Url.Action("Recherche","EspaceAdmin")>  <i class="menu-icon fa fa-laptop"></i>Recherche</a>
+
+                </li>
+                <li>
+                    <a href=@Url.Action("preselection","EspaceAdmin")><i class="menu-icon fa fa-table"></i>Préselection</a>
+
+                </li>
+                <li>
+                    <a href=@Url.Action("Index","EspaceAdmin")> <i class="menu-icon fa fa-area-chart"></i>Statistique</a>
+
+                </li>
+
+                <h3 class="menu-title">Councours d'acces</h3><!-- /.menu-title -->
+
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i> Councour</a>
+
+                </li>
+                <li>
+                    <a href="widgets.html"> <i class="menu-icon ti-email"></i>Délébération </a>
+                </li>
+                <li>
+
+                    <a href="widgets.html"> <i class="menu-icon fa fa-bar-chart"></i>Statistique </a>
+
+                </li>
+
+
+
+            </ul>
+        </div><!-
+    </nav>
+</aside><!-- /#left-panel -->
+<!-- Left Panel -->
+<!-- Right Panel -->
+
+<div id="right-panel" class="right-panel">
+
+    <!-- Header-->
+    <header id="header" class="header">
+
+        <div class="header-menu">
+
+            <div class="col-sm-7">
+                <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                <div class="header-left">
+                    <h1>Councours d'accées</h1>
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="user-area dropdown float-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="user-avatar rounded-circle" src="/Content/myimage/admin.jpg" alt="User Avatar">
+                    </a>
+
+                    <div class="user-menu dropdown-menu">
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                    </div>
+                </div>
+
+                <div class="language-select dropdown" id="language-select">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
+                        <i class="flag-icon flag-icon-us"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="language">
+                        <div class="dropdown-item">
+                            <span class="flag-icon flag-icon-fr"></span>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-es"></i>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-us"></i>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-it"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </header><!-- /header -->
+    <!-- Header-->
+
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Preselection </strong>
+                        </div>
+                        <div class="card-body">
+                            <!-- Credit Card -->
+                            <div id="pay-invoice">
+                                <div class="card-body">
+
+                                    @using (Html.BeginForm("listepreselection", "EspaceAdmin", FormMethod.Get))
+                                    {
+                                        <div class="form-group">
+                                            <label for="cc-payment" class="control-label mb-1">Filiére</label>
+                                            <br />
+                                            <div class="form-control">
+                                                @Html.DropDownList("filiere", ViewBag.filiere as SelectList, "Selectionner filiere", new { id = "filiere" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cc-payment" class="control-label mb-1">Diplome</label>
+                                            <br />
+                                            <div class="form-control">
+
+                                                @Html.DropDownList("deplome", ViewBag.diplome as SelectList, "Selectionner diplome", new { id = "deplome" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Seuil</label>
+                                            <input type="text" name="seuil" placeholder="Entrer le seuil" class="form-control">
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-dot-circle-o"></i> Lancer la préselection
+                                        </button>
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                    </div> <!-- .card -->
+
+                </div>
+                <!--/.col-->
+                                    
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header"><strong>Nombre des etudiants</strong></div>
+                        
+                            <br />
+                            <div class="card-body card-block">
+                                <div class="form-group"><label for="company" class=" form-control-label">Totale des etudiant inscrits</label>
+                                <label  class="form-control"/>@ViewBag.totale</div>
+
+                            </div>
+                    </div>
+                </div>
+                                    
+
+
+            </div> <!-- .card -->
+        </div>
+
